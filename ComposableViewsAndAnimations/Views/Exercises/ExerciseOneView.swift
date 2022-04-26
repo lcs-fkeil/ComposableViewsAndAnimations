@@ -16,8 +16,11 @@ struct ExerciseOneView: View {
     @Binding var showThisView: Bool
         
     // Whether to apply the animation
-    @State private var useAnimation = false
+    @State private var useAnimation = true
+    
+    @State var scaleFactor = 0.5
 
+    @State private var hue: Color = .blue
     // MARK: Computed properties
 
     var body: some View {
@@ -28,7 +31,23 @@ struct ExerciseOneView: View {
 
                 Circle()
                     .frame(width: 200, height: 200)
-                    .foregroundColor(.blue)
+                    .foregroundColor(hue)
+                    .scaleEffect(scaleFactor)
+                    .onTapGesture {
+                        if scaleFactor < 1.0 {
+                            scaleFactor += 0.1
+                           
+                        } else {
+                            scaleFactor = 0.1
+                            
+                            hue = Color(hue: Double.random(in: 1...360) / 360.0,
+                                        saturation: 0.8,
+                                        brightness: 0.8)
+                        }
+                    }
+                
+                    .animation(.default)
+                    .animation(useAnimation ? .default : .none)
                 
             }
             .navigationTitle("Exercise 1")

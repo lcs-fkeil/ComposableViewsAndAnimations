@@ -14,16 +14,16 @@ struct CustomComposableView: View {
     @State var opacityText1 = 1.0
     @State var opacityText2 = 0.0
     
-    @State var opacity1 = 0.0
-    @State var opacity2 = 0.0
-    @State var opacity3 = 0.0
-    @State var opacity4 = 0.0
-    @State var opacity5 = 0.0
-    @State var opacity6 = 0.0
-    @State var opacity7 = 0.0
-    @State var opacity8 = 0.0
-    @State var opacity9 = 0.0
-    @State var opacity10 = 0.0
+    @State var opacity1 = 1.0
+    @State var opacity2 = 1.0
+    @State var opacity3 = 1.0
+    @State var opacity4 = 1.0
+    @State var opacity5 = 1.0
+    @State var opacity6 = 1.0
+    @State var opacity7 = 1.0
+    @State var opacity8 = 1.0
+    @State var opacity9 = 1.0
+    @State var opacity10 = 1.0
     
     
     // Horizontal position
@@ -56,23 +56,6 @@ struct CustomComposableView: View {
     var body: some View {
         ZStack {
             
-            Text("Submit")
-                .font(.title2)
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 16)
-                        .stroke(Color.black, lineWidth: 4)
-                )
-                .opacity(opacityText1)
-            
-            Text("Re-submit")
-                .font(.title2)
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 16)
-                        .stroke(Color.black, lineWidth: 4)
-                )
-                .opacity(opacityText2)
             Group {
                 Circle()
                     .frame(width: 20, height: 20)
@@ -126,22 +109,46 @@ struct CustomComposableView: View {
                     .offset(x: xOffset10, y: yOffset10)
             }
             
+            Circle()
+                .frame(width: 25, height: 25)
+                .foregroundColor(.white)
+            
+            
+            Text("Submit")
+                .font(.title2)
+                .padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(Color.black, lineWidth: 4)
+                )
+                .opacity(opacityText1)
+            
+            Text("Re-submit")
+                .font(.title2)
+                .padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(Color.black, lineWidth: 4)
+                )
+                .opacity(opacityText2)
+            
+            
             
             
         }
         .onTapGesture {
             opacityText1 = 0.0
             opacityText2 = 1.0
-            opacity1 = 1.0
-            opacity2 = 1.0
-            opacity3 = 1.0
-            opacity4 = 1.0
-            opacity5 = 1.0
-            opacity6 = 1.0
-            opacity7 = 1.0
-            opacity8 = 1.0
-            opacity9 = 1.0
-            opacity10 = 1.0
+            opacity1 = 0.0
+            opacity2 = 0.0
+            opacity3 = 0.0
+            opacity4 = 0.0
+            opacity5 = 0.0
+            opacity6 = 0.0
+            opacity7 = 0.0
+            opacity8 = 0.0
+            opacity9 = 0.0
+            opacity10 = 0.0
             
             xOffset1 = -150.0
             xOffset2 = -120.0

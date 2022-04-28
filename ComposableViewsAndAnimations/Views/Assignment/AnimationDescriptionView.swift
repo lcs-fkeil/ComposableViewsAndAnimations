@@ -1,19 +1,13 @@
 //
-//  CustomComposableDescriptionView.swift
+//  AnimationDescriptionView.swift
 //  ComposableViewsAndAnimations
 //
-//  Created by Russell Gordon on 2021-02-23.
+//  Created by Franka Keil on 2022-04-28.
 //
 
 import SwiftUI
 
-struct CustomComposableDescriptionView: View {
-    
-    // MARK: Stored properties
-    @State private var phrase1: String = ""
-    
-    @State var phrase2: String = ""
-    
+struct AnimationDescriptionView: View {
     // MARK: Computed properties
     var body: some View {
         
@@ -27,22 +21,22 @@ struct CustomComposableDescriptionView: View {
                     .padding(.top)
                 
                 Text("""
-                    A text field with confetti when clicked.
-
+                    An exclamation mark that gets filled in when tapped.
+                    
                     Enter the initial text message in the first text field and the second text message in the second text field.
                     """)
                 
-                TextField("Enter the first message here", text: $phrase1)
-                TextField("Enter the second message here", text: $phrase2)
+               
+                
                 
                 
             }
             .padding(.bottom)
             
             List {
-                NavigationLink(destination: CustomComposableView(message1: phrase1, message2: phrase2)) {
+                NavigationLink(destination: AnimationView()) {
                     SimpleListItemView(title: "My Composable View",
-                                       caption: "A text with confetti when clicked")
+                                       caption: "An empty excalmation mark that gets filled")
                 }
             }
             
@@ -53,10 +47,10 @@ struct CustomComposableDescriptionView: View {
     }
 }
 
-struct CustomComposableDescriptionView_Previews: PreviewProvider {
+struct AnimationDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            CustomComposableDescriptionView()
+        NavigationView{
+        AnimationDescriptionView()
         }
     }
 }

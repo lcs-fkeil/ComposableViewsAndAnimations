@@ -10,7 +10,9 @@ import SwiftUI
 struct CustomComposableDescriptionView: View {
     
     // MARK: Stored properties
-    @State private var phrase: String = ""
+    @State private var phrase1: String = ""
+    
+    @State var phrase2: String = ""
     
     // MARK: Computed properties
     var body: some View {
@@ -25,18 +27,20 @@ struct CustomComposableDescriptionView: View {
                     .padding(.top)
                 
                 Text("""
-                    Replace this with a description of how to use this view.
+                    A text field with confetti when clicked.
 
-                    If the view accepts a parameter, provide a control to enter the input below.
+                    Enter the initial text message in the first text field and the second text message in the second text field.
                     """)
                 
-                TextField("Enter an input value", text: $phrase)
+                TextField("Enter the first message here", text: $phrase1)
+                TextField("Enter the second message here", text: $phrase2)
+                
                 
             }
             .padding(.bottom)
             
             List {
-                NavigationLink(destination: CustomComposableView()) {
+                NavigationLink(destination: CustomComposableView(message1: phrase1, message2: phrase2)) {
                     SimpleListItemView(title: "My Composable View",
                                        caption: "A brief description of my view")
                 }

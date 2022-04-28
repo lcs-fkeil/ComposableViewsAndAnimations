@@ -11,6 +11,9 @@ struct CustomComposableView: View {
     
     // MARK: Stored Properties
     
+    let message1 : String
+    let message2 : String
+    
     @State var opacityText1 = 1.0
     @State var opacityText2 = 0.0
     
@@ -114,7 +117,7 @@ struct CustomComposableView: View {
                 .foregroundColor(.white)
             
             
-            Text("Submit")
+            Text(message1)
                 .font(.title2)
                 .padding()
                 .overlay(
@@ -123,7 +126,7 @@ struct CustomComposableView: View {
                 )
                 .opacity(opacityText1)
             
-            Text("Re-submit")
+            Text(message2)
                 .font(.title2)
                 .padding()
                 .overlay(
@@ -180,6 +183,6 @@ struct CustomComposableView: View {
 
 struct CustomComposableView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomComposableView()
+        CustomComposableView(message1: "submit", message2: "re-submit")
     }
 }

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct AnimationDescriptionView: View {
+    
+    @State var emColour = Color.red
+    
     // MARK: Computed properties
     var body: some View {
         
@@ -26,6 +29,8 @@ struct AnimationDescriptionView: View {
                     Enter the initial text message in the first text field and the second text message in the second text field.
                     """)
                 
+                ColorPicker("Set the colour for the exclamation mark", selection: $emColour, supportsOpacity: false)
+                
                
                 
                 
@@ -34,7 +39,7 @@ struct AnimationDescriptionView: View {
             .padding(.bottom)
             
             List {
-                NavigationLink(destination: AnimationView()) {
+                NavigationLink(destination: AnimationView(chosenColour: emColour)) {
                     SimpleListItemView(title: "My Composable View",
                                        caption: "An empty excalmation mark that gets filled")
                 }

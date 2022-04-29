@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AnimationView: View {
     
+    let chosenColour : Color
+    
     // MARK: Stored Properties
     
     @State var rotation = 0.0
@@ -28,13 +30,13 @@ struct AnimationView: View {
                 Image(systemName: "rectangle.portrait")
                     .resizable()
                     .frame(width: 30, height: 100)
-                    .foregroundColor(.red)
+                    .foregroundColor(chosenColour)
                     .opacity(unfilledOpacity)
                 
                 Image(systemName: "rectangle.portrait.fill")
                     .resizable()
                     .frame(width: 30, height: 100)
-                    .foregroundColor(.red)
+                    .foregroundColor(chosenColour)
                     .opacity(filledOpacity)
             }
             
@@ -43,13 +45,13 @@ struct AnimationView: View {
                 Image(systemName: "circle")
                     .resizable()
                     .frame(width: 40, height: 40)
-                    .foregroundColor(.red)
+                    .foregroundColor(chosenColour)
                     .opacity(unfilledOpacity)
                 
                 Image(systemName: "circle.fill")
                     .resizable()
                     .frame(width: 40, height: 40)
-                    .foregroundColor(.red)
+                    .foregroundColor(chosenColour)
                     .opacity(filledOpacity)
             }
             
@@ -73,6 +75,6 @@ struct AnimationView: View {
 
 struct AnimationView_Previews: PreviewProvider {
     static var previews: some View {
-        AnimationView()
+        AnimationView(chosenColour: .red)
     }
 }
